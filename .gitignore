@@ -33,3 +33,7 @@ override.tf.json
 \#*
 *\#
 *.bak
+
+# Temp files
+tmp
+temp

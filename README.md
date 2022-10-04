@@ -2,7 +2,8 @@
 
 ## Overview
 
-Experiments using the Terraform EKS module
+Experiments using the Terraform EKS module based initially on this 
+[tutorial](https://medium.com/devops-mojo/terraform-provision-amazon-eks-cluster-using-terraform-deploy-create-aws-eks-kubernetes-cluster-tf-4134ab22c594)
 
 
 ## Prerequisites
@@ -63,6 +64,8 @@ Default output format [None]: json
 * [EKS Module](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest)
 * [Use Terraform modules from the registry](https://learn.hashicorp.com/tutorials/terraform/module-use?in=terraform/modules)
 * [State backend configuration](https://www.terraform.io/language/settings/backends/local)
+* [Terraform variables](https://www.terraform.io/language/values/variables)
+
 
 ### AWS
 
