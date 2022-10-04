@@ -5,16 +5,6 @@
 Experiments using the Terraform EKS module
 
 
-## Variables
-
-* aws_access_key
-* aws_secret_key
-* availability_zones_count
-* project - used for AWS resource naming
-* region - specifies AWS region to use
-* vpc_cidr
-* subnet_cidr_bits
-
 ## Prerequisites
 
 ### Terraform
@@ -26,12 +16,12 @@ brew tap hashicorp
 brew install hashicorp/tap/terraform
 ```
 
-### AWS Cli
+### AWS/EKS CLIs
 
 * On MacOS using brew again
 
 ```
-brew install awscli
+brew install awscli eksctl
 ```
 
 
@@ -41,6 +31,27 @@ brew install awscli
 
 ```
 brew install kubectl kubectx
+```
+
+
+## Notes
+
+### Setting up AWS CLI
+
+* Created access key using web console for AWS
+* Creating configuration using the following command
+
+```
+aws configure --profile fiona
+```
+
+* Asks the following questions
+
+```
+AWS Access Key ID [None]: <enter key ID>
+AWS Secret Access Key [None]: <enter secret key>
+Default region name [None]: eu-west-2
+Default output format [None]: json
 ```
 
 
