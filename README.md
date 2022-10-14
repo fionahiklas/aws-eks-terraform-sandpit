@@ -6,6 +6,15 @@ Experiments using the Terraform EKS module based initially on this
 [tutorial](https://medium.com/devops-mojo/terraform-provision-amazon-eks-cluster-using-terraform-deploy-create-aws-eks-kubernetes-cluster-tf-4134ab22c594)
 
 
+## Quickstart
+
+* Install the prerequisites
+* Run `terraform -chdir=infrastructure init -var-file=../tmp/test.tfvars`
+* Run `terraform -chdir=infrastructure plan -var-file=../tmp/test.tfvars`
+* Run `terraform -chdir=infrastructure apply -var-file=../tmp/test.tfvars`
+
+
+
 ## Prerequisites
 
 ### Terraform
@@ -56,6 +65,43 @@ Default output format [None]: json
 ```
 
 
+### Querying AZs
+
+On AWS CLI
+
+```
+aws --profile fionahiklas ec2 describe-availability-zones
+```
+
+
+
+### Trying to run terraform
+
+Setup a `tmp` directory (which will be ignored by git) with the `test.tfvars` file containing
+
+```
+aws_access_key = "<access key>"
+aws_secret_key = "<secret_key>"
+
+region                   = "eu-west-2"
+availability_zones_count = 1
+
+project = "TestCluster"
+
+vpc_cidr         = "10.0.0.0/16"
+subnet_cidr_bits = 8
+```
+
+Running the following command from the root of the cloned repo
+
+```
+terraform -chdir=infrastructure plan -var-file=../tmp/test.tfvars
+```
+
+This will produce ALOT of output
+
+
+
 ## References
 
 ### Terraform
@@ -72,6 +118,8 @@ Default output format [None]: json
 * [Homebrew awscli](https://formulae.brew.sh/formula/awscli)
 * [Connect to EKS cluster](https://aws.amazon.com/premiumsupport/knowledge-center/eks-cluster-connection/)
 * [Provision AWS EKS with terraform](https://medium.com/devops-mojo/terraform-provision-amazon-eks-cluster-using-terraform-deploy-create-aws-eks-kubernetes-cluster-tf-4134ab22c594)
+* [List AWS CLI profiles](https://superuser.com/questions/1260311/is-there-a-way-to-list-available-configured-aws-cli-profiles)
+* [AWS CLI describe AZs](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html)
 
 
 ### Kubernetes
